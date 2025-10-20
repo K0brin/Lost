@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class GameplayWidget : MonoBehaviour
 {
     [SerializeField] Image mTransitionImage;
+    [SerializeField] ChildSwitcher mMainSwitcher;
+    [SerializeField] BattleWidget mBattleWidget;
+    [SerializeField] GameObject mRoamingWidget;
 
     void Awake()
     {
@@ -15,6 +18,11 @@ public class GameplayWidget : MonoBehaviour
     public void DipToBlack(float dipInAndOutDuration, float dipStayDuration, Action dippedToBlackCallBack)
     {
         StartCoroutine(StartDipToBlack(dipInAndOutDuration, dipStayDuration, dippedToBlackCallBack));
+    }
+
+    public void SetFocusedCharacterInBattle(BattleCharacter battleCharacter)
+    {
+        mBattleWidget.SetCharacterControlTarget(battleCharacter);
     }
 
     IEnumerator StartDipToBlack(float dipInAndOutDuration, float dipStayDuration, Action dippedToBlackCallBack)
@@ -46,5 +54,15 @@ public class GameplayWidget : MonoBehaviour
         }
         
         mTransitionImage.gameObject.SetActive(false);
+    }
+
+    internal void SwitchToBattle()
+    {
+        mMainSwitcher.SetActiveChild(mBattleWidget.gameObject);
+    }
+
+    internal void SwitchToRoaming()
+    {
+        mMainSwitcher.SetActiveChild(mRoamingWidget);
     }
 }

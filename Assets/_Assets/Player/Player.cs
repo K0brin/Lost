@@ -1,3 +1,4 @@
+using System;
 using UnityEditor.Rendering;
 using UnityEngine;
 
@@ -36,7 +37,13 @@ public class Player : MonoBehaviour, IViewClient
         mPlayerInputActions.Gameplay.Look.canceled += (context) => mCameraRig.SetLookInput(context.ReadValue<Vector2>());
 
         mBattlePartyComponent = GetComponent<BattlePartyComponent>();
+        mBattlePartyComponent.onBattleCharacterTakeTurn += BattleCharacterTakeTurn;
         mGameplayWidget = Instantiate(mGameplayWidgetPrefab);
+    }
+
+    private void BattleCharacterTakeTurn(BattleCharacter character)
+    {
+        mGameplayWidget.SetFocusedCharacterInBattle(character);
     }
 
     void OnEnable()
@@ -83,6 +90,7 @@ public class Player : MonoBehaviour, IViewClient
     {
         Debug.Log($"Dipped To Black Called");
         mBattlePartyComponent.UpdateView();
+        mGameplayWidget.SwitchToBattle();
     }
 
     private bool IsInBattle()
