@@ -11,6 +11,10 @@ public class BattleManager : MonoBehaviour
     List<BattleSite> mBattleSites;
     List<BattleCharacter> mBattleCharacters = new List<BattleCharacter>();
 
+    Queue<BattleCharacter> mFirstRoundBattleCharacters = new Queue<BattleCharacter>();
+    // int mRoundNumber = 1;
+    // int mFirstTurnNextIndex = 0;
+
     public void StartBattle(BattlePartyComponent playerParty, BattlePartyComponent enemyParty)
     {
         mBattleCharacters.Clear();
@@ -31,13 +35,40 @@ public class BattleManager : MonoBehaviour
     {
         //TODO: refactor to not hard code the delay
         yield return new WaitForSeconds(2);
+        UpdateTurnOrder();
+
+        mFirstRoundBattleCharacters = new Queue<BattleCharacter>(mBattleCharacters);
+        ProcessFirstRound();
+    }
+
+    private void ProcessFirstRound()
+    {
+        if (mFirstRoundBattleCharacters.TryDequeue(out BattleCharacter nextBattleCharacter))
+        {
+            if (mBattleCharacters.Contains(nextBattleCharacter))
+            {
+                nextBattleCharacter.TakeTurn();
+            }
+            else
+            {
+                ProcessFirstRound();
+            }
+
+            return;
+        }
+        
+        foreach(BattleCharacter battleCharacter in mBattleCharacters)
+        {
+            battleCharacter.OnTurnFinished -= ProcessFirstRound;
+            battleCharacter.OnTurnFinished += NextTurn;
+        }
+
         NextTurn();
     }
 
     void NextTurn()
     {
-        mBattleCharacters = mBattleCharacters.OrderBy(
-            (battleCharacter) => { return battleCharacter.CooldownTimeRemaining; }).ToList();
+        UpdateTurnOrder();
 
         float advanceTime = mBattleCharacters[0].CooldownTimeRemaining;
         foreach (BattleCharacter battleCharacter in mBattleCharacters)
@@ -51,7 +82,15 @@ public class BattleManager : MonoBehaviour
         mBattleCharacters.Remove(nextInTurn);
         mBattleCharacters.Add(nextInTurn);
 
-        
+
+    }
+
+    private void UpdateTurnOrder()
+    {
+        mBattleCharacters = mBattleCharacters.OrderBy(
+            (battleCharacter) => { return battleCharacter.CooldownTimeRemaining; }).
+            ThenBy((battleCharacter) => { return 1/battleCharacter.Speed;  }).
+            ToList();
     }
 
     private void PrepParty(BattlePartyComponent party)
@@ -67,7 +106,7 @@ public class BattleManager : MonoBehaviour
         {
             partyBattleCharacter.transform.position = partyBattleSite.GetPositionForUnit(i);
             partyBattleCharacter.transform.rotation = partyBattleSite.transform.rotation;
-            partyBattleCharacter.OnTurnFinished += NextTurn;
+            partyBattleCharacter.OnTurnFinished += ProcessFirstRound;
             mBattleCharacters.Add(partyBattleCharacter);
             i++;
         }
