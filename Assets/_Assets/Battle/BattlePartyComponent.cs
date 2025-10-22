@@ -41,7 +41,7 @@ public class BattlePartyComponent : MonoBehaviour
             {
                 BattleCharacter newBattleCharacter = Instantiate(battleCharacter);
                 newBattleCharacter.onTurnStarted += CharacterInTurn;
-                mBattleCharacters.Add(Instantiate(battleCharacter));
+                mBattleCharacters.Add(newBattleCharacter);
             }
         }
 

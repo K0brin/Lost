@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class BattleWidget : MonoBehaviour
 {
-    [SerializeField] CharacterControlWidget mCharacterContorolWidget;
+    [SerializeField] CharacterControlWidget mCharacterControlWidget;
     
     public void SetCharacterControlTarget(BattleCharacter battleCharacter)
     {
-        mCharacterContorolWidget.gameObject.SetActive(true);
-        mCharacterContorolWidget.SetBattleCharacter(battleCharacter);
+        mCharacterControlWidget.gameObject.SetActive(true);
+        mCharacterControlWidget.SetBattleCharacter(battleCharacter);
     }
 }

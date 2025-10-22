@@ -487,6 +487,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6232827984452306131, guid: b3d76532fc16c4b41b665c5c35ec2087, type: 3}
+      propertyPath: mCharacterControlWidget
+      value: 
+      objectReference: {fileID: 2771831047803776058}
+    - target: {fileID: 6232827984452306131, guid: b3d76532fc16c4b41b665c5c35ec2087, type: 3}
       propertyPath: mCharacterContorolWidget
       value: 
       objectReference: {fileID: 2771831047803776058}
