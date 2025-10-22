@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class AbilityWidget : MonoBehaviour
 {
     Button mButton;
+    [SerializeField] TextMeshProUGUI mAbilityNameText;
     void Awake()
     {
         mButton = GetComponent<Button>();
@@ -14,7 +15,7 @@ public class AbilityWidget : MonoBehaviour
     public void SetAbility(Ability ability)
     {
         mAbility = ability;
-        GetComponentInChildren<TextMeshProUGUI>().text = mAbility.mAbilityName;
+        mAbilityNameText.SetText(ability.mAbilityName);
     }
     void ActivateAbility()
     {
