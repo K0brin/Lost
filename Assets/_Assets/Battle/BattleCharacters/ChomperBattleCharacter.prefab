@@ -13,6 +13,10 @@ PrefabInstance:
       value: ChomperBattleCharacter
       objectReference: {fileID: 0}
     - target: {fileID: 2361028934213423783, guid: 5ed3a55e62662f44ca383c2f7064964a, type: 3}
+      propertyPath: <Name>k__BackingField
+      value: Chomper
+      objectReference: {fileID: 0}
+    - target: {fileID: 2361028934213423783, guid: 5ed3a55e62662f44ca383c2f7064964a, type: 3}
       propertyPath: <Speed>k__BackingField
       value: 1
       objectReference: {fileID: 0}

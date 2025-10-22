@@ -6,7 +6,7 @@ public class CharacterControlWidget : MonoBehaviour
     [SerializeField] TextMeshProUGUI mCharacterNametext;
     internal void SetBattleCharacter(BattleCharacter battleCharacter)
     {
-        mCharacterNametext.SetText(battleCharacter.gameObject.name);
+        mCharacterNametext.SetText(battleCharacter.Name);
     }
 
 }

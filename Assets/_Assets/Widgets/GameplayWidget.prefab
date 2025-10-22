@@ -31,7 +31,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6192126125246248414}
-  - {fileID: 6588923126035112545}
+  - {fileID: 2774545703051763736}
   m_Father: {fileID: 7955172528949385578}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -313,7 +313,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mTransitionImage: {fileID: 7495925979937741411}
   mMainSwitcher: {fileID: 2253430575179081924}
-  mBattleWidget: {fileID: 3568486543835373985}
+  mBattleWidget: {fileID: 5509146627836797912}
   mRoamingWidget: {fileID: 1596195946628328245}
 --- !u!1 &8763842974457036308
 GameObject:
@@ -390,7 +390,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1001 &7492507216163202418
+--- !u!1001 &1876628494140843787
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -401,10 +401,6 @@ PrefabInstance:
     - target: {fileID: 1517363519784146187, guid: b3d76532fc16c4b41b665c5c35ec2087, type: 3}
       propertyPath: m_Name
       value: BattleWidget
-      objectReference: {fileID: 0}
-    - target: {fileID: 2202803416299072643, guid: b3d76532fc16c4b41b665c5c35ec2087, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4362357677185599251, guid: b3d76532fc16c4b41b665c5c35ec2087, type: 3}
       propertyPath: m_Pivot.x
@@ -456,15 +452,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4362357677185599251, guid: b3d76532fc16c4b41b665c5c35ec2087, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4362357677185599251, guid: b3d76532fc16c4b41b665c5c35ec2087, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4362357677185599251, guid: b3d76532fc16c4b41b665c5c35ec2087, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4362357677185599251, guid: b3d76532fc16c4b41b665c5c35ec2087, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -486,34 +482,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6232827984452306131, guid: b3d76532fc16c4b41b665c5c35ec2087, type: 3}
-      propertyPath: mCharacterControlWidget
-      value: 
-      objectReference: {fileID: 2771831047803776058}
-    - target: {fileID: 6232827984452306131, guid: b3d76532fc16c4b41b665c5c35ec2087, type: 3}
-      propertyPath: mCharacterContorolWidget
-      value: 
-      objectReference: {fileID: 2771831047803776058}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3d76532fc16c4b41b665c5c35ec2087, type: 3}
---- !u!114 &2771831047803776058 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4723500008610679112, guid: b3d76532fc16c4b41b665c5c35ec2087, type: 3}
-  m_PrefabInstance: {fileID: 7492507216163202418}
+--- !u!224 &2774545703051763736 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4362357677185599251, guid: b3d76532fc16c4b41b665c5c35ec2087, type: 3}
+  m_PrefabInstance: {fileID: 1876628494140843787}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2ca66a10bc06784c973a315f211e378, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &3568486543835373985 stripped
+--- !u!114 &5509146627836797912 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6232827984452306131, guid: b3d76532fc16c4b41b665c5c35ec2087, type: 3}
-  m_PrefabInstance: {fileID: 7492507216163202418}
+  m_PrefabInstance: {fileID: 1876628494140843787}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -521,8 +503,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dd1177107a9a2a428f30a4e50ea59e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &6588923126035112545 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 4362357677185599251, guid: b3d76532fc16c4b41b665c5c35ec2087, type: 3}
-  m_PrefabInstance: {fileID: 7492507216163202418}
-  m_PrefabAsset: {fileID: 0}
