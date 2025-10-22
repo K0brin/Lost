@@ -9,4 +9,9 @@ public abstract class Ability : ScriptableObject
     {
         mOwningAbilityComponent = newAbility;
     }
+
+    public virtual void ActivateAbility()
+    {
+        Debug.Log($"Activating ability");
+    }
 }

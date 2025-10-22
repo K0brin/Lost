@@ -2,6 +2,7 @@ using Unity.VisualScripting;
 using System;
 using UnityEngine;
 
+[RequireComponent(typeof(AbilityComponent))]
 public class BattleCharacter : MonoBehaviour
 {
     [field: SerializeField] public float Speed { get; private set; } = 1;
